@@ -20,7 +20,7 @@
   }
 }
 </script>
-<link rel="stylesheet" href="css/style.css?v=20260926-motion-1">
+<link rel="stylesheet" href="css/style.css?v=20260928-quiz-1">
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
@@ -55,6 +55,7 @@
  <a class="dotnav__item" data-target="s6" href="#s6"><span class="dotnav__dot"></span><span class="dotnav__label">6 · Liên hệ thực tiễn</span></a>
  <a class="dotnav__item" data-target="s7" href="#s7"><span class="dotnav__dot"></span><span class="dotnav__label">7 · Trả lời CQ2</span></a>
  <a class="dotnav__item" data-target="s8" href="#s8"><span class="dotnav__dot"></span><span class="dotnav__label">8 · Phạm vi &amp; tài liệu</span></a>
+ <a class="dotnav__item" data-target="quiz" href="#quiz"><span class="dotnav__dot"></span><span class="dotnav__label">Tổng kết · 5 câu</span></a>
 </nav>
  
 <div class="mobile-sheet" id="mobile-sheet" aria-hidden="true">
@@ -72,6 +73,7 @@
      <li><a data-target="s6" href="#s6"><span class="dotnav__dot"></span>6. Liên hệ thực tiễn</a></li>
      <li><a data-target="s7" href="#s7"><span class="dotnav__dot"></span>7. Trả lời CQ2</a></li>
      <li><a data-target="s8" href="#s8"><span class="dotnav__dot"></span>8. Phạm vi, giới hạn &amp; tài liệu tham khảo</a></li>
+     <li><a data-target="quiz" href="#quiz"><span class="dotnav__dot"></span>Tổng kết · Trắc nghiệm 5 câu</a></li>
    </ul>
  </div>
 </div>
@@ -650,6 +652,53 @@
    </ol>
  </div>
 </section>
+
+<!-- ============================== TỔNG KẾT ============================== -->
+<section class="section section--panel quiz-section" id="quiz" aria-labelledby="quiz-heading">
+ <div class="section__inner">
+  <div class="section__head reveal">
+   <span class="section__num">10</span>
+   <div class="section__titles">
+    <span class="section__kicker">Tổng kết · Tương tác</span>
+    <h2 class="section__title" id="quiz-heading">Thử thách 5 câu</h2>
+   </div>
+  </div>
+  <p class="lede reveal">Từ cơ chế thị trường đến vai trò Nhà nước — thử nối các ý vừa đọc qua năm câu hỏi ngắn.</p>
+  <div class="quiz reveal" id="quiz-app">
+   <div class="quiz__intro" id="quiz-intro">
+    <div class="quiz__intro-copy">
+     <span class="quiz__eyebrow">Không tính giờ · Có giải thích</span>
+     <h3 class="quiz__headline">Bạn có nắm được mạch vận hành?</h3>
+     <p class="quiz__description">Chọn đáp án phù hợp nhất. Sau mỗi câu, xem phản hồi để chốt lại ý chính.</p>
+    </div>
+    <button class="quiz__button quiz__button--primary" id="quiz-start" type="button">Bắt đầu <span aria-hidden="true">→</span></button>
+   </div>
+   <div class="quiz__game" id="quiz-game" hidden>
+    <div class="quiz__meta"><span>CÂU <b id="quiz-current">01</b> / 05</span><span class="quiz__score" id="quiz-score">0 ĐIỂM</span></div>
+    <div class="quiz__progress" role="progressbar" aria-label="Tiến độ câu hỏi" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span id="quiz-progress"></span></div>
+    <div class="quiz__question-wrap">
+     <p class="quiz__topic" id="quiz-topic"></p>
+     <h3 class="quiz__question" id="quiz-question" tabindex="-1"></h3>
+     <fieldset class="quiz__choices" id="quiz-choices">
+      <legend class="visually-hidden">Chọn một đáp án</legend>
+     </fieldset>
+     <div class="quiz__feedback" id="quiz-feedback" role="status" aria-live="polite" hidden>
+      <b class="quiz__feedback-title" id="quiz-feedback-title"></b>
+      <p class="quiz__feedback-copy" id="quiz-feedback-copy"></p>
+     </div>
+     <div class="quiz__actions"><span class="quiz__hint" id="quiz-hint">Chọn đáp án bạn cho là đúng.</span><button class="quiz__button quiz__button--primary" id="quiz-submit" type="button" disabled>Chốt đáp án <span aria-hidden="true">→</span></button></div>
+    </div>
+   </div>
+   <div class="quiz__result" id="quiz-result" aria-labelledby="quiz-result-heading" hidden>
+    <div class="quiz__result-top"><span class="quiz__eyebrow">Thử thách hoàn thành</span><span class="quiz__result-score"><b id="quiz-final-score">0</b><small> / 5</small></span></div>
+    <h3 class="quiz__result-heading" id="quiz-result-heading" tabindex="-1">Nắm được mạch chính.</h3>
+    <p class="quiz__result-copy" id="quiz-result-copy"></p>
+    <div class="quiz__review" id="quiz-review" aria-label="Tóm tắt kết quả từng câu"></div>
+    <button class="quiz__button quiz__button--quiet" id="quiz-replay" type="button">Chơi lại <span aria-hidden="true">↻</span></button>
+   </div>
+  </div>
+ </div>
+</section>
  
 </main>
  
@@ -657,7 +706,8 @@
  <span><strong>Báo cáo thảo luận CQ2</strong> — Kinh tế chính trị Mác – Lênin (SS008), Nhóm 2</span>
 </footer>
  
-<script src="js/main.js?v=20260926-motion-1"></script>
+<script src="js/main.js?v=20260928-quiz-1"></script>
+<script src="js/quiz.js?v=20260928-quiz-1"></script>
 <script type="module" src="js/scene3d.js?v=space-motion-5"></script>
 
 </body>

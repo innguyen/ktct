@@ -6,7 +6,7 @@
  'use strict';
  
  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- var SECTION_ORDER = ['hero', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8'];
+ var SECTION_ORDER = ['hero', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 'quiz'];
  var currentSectionId = 'hero';
  
  function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
@@ -44,7 +44,7 @@
      });
      if (counter) {
        var idx = SECTION_ORDER.indexOf(id);
-       counter.textContent = idx <= 0 ? '\u00A0' : idx + ' / 8';
+       counter.textContent = id === 'quiz' ? 'Quiz' : idx <= 0 ? '\u00A0' : idx + ' / 8';
      }
    }
  
@@ -77,7 +77,9 @@
        var tag = active.tagName;
        if (['INPUT', 'TEXTAREA', 'SELECT'].indexOf(tag) !== -1) return;
        if (active.closest && active.closest('.sd-widget')) return;
+       if (active.closest && active.closest('.quiz')) return;
      }
+     if (currentSectionId === 'quiz') return;
      var idx = SECTION_ORDER.indexOf(currentSectionId);
      if (idx === -1) idx = 0;
      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
